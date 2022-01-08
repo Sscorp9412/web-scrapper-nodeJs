@@ -8,7 +8,7 @@ global.myCache = new NodeCache();
 // ** initialise app
 const app = express();
 // ** env variables
-const { APP_NAME, PORT, DATABASE_URL, SESSIONS_SECRET } = process.env;
+const { APP_NAME, PORT} = process.env;
 app.use(cors());
 app.use(express.urlencoded({
    extended: true
@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
    res.send('App started at /api');
 })
 
-const port = PORT || 4001;
+const port = PORT;
 app.listen(port, () => {
    console.log(`${APP_NAME} is listening at http://localhost:${port}`);
 });
