@@ -1,21 +1,14 @@
-// ** import all files
-const express = require("express"); // ** npm install express @desc framework used to create REST API
-const path = require("path"); // ** inbuilt dependency @desc get access to various function for paths
-const sessions = require("express-session"); // ** npm install express-session @desc create sessions
-const multer = require("multer");
+const express = require("express");
+const path = require("path");
 const cors = require("cors");
 const NodeCache = require( "node-cache" );
 require("dotenv").config();
-
-// global variable
-global.mongoose = require("mongoose");
 global.myCache = new NodeCache();
 
 // ** initialise app
 const app = express();
 // ** env variables
 const { APP_NAME, PORT, DATABASE_URL, SESSIONS_SECRET } = process.env;
-app.use(express.static(path.join(__dirname, "assets")));
 app.use(cors());
 app.use(express.urlencoded({
    extended: true
