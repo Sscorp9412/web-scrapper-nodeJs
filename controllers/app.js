@@ -15,7 +15,7 @@ exports.create = async (req, res) => {
       // const data = await Scrap.collection.insert(scrappedData);
       res
         .status(200)
-        .send({ message: "URL scrapped Successfully", data: scrappedData });
+        .send({ message: "URL scrapped Successfully", data: {} });
     } else res.status(404).send("Cannot scrap this URL");
   } catch (error) {
     console.log(error);
@@ -49,13 +49,13 @@ exports.viewAll = (req, res) => {
  */
 exports.view = (req, res) => {
   const code = req.params.code;
-  const arrayStructure = []
+  const arrayStructure = [];
   const json = myCache.get(code);
   arrayStructure.push({ code: code, ...json });
   if (arrayStructure.length > 0) {
     res
       .status(200)
-      .send({ message: "Complete scrapped data", data: arrayStructure });
+      .send({ message: "Requested scrapped data", data: arrayStructure });
   } else {
     res.status(400).send({ message: "data not found", data: [] });
   }
