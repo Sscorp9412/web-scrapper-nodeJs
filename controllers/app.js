@@ -1,6 +1,5 @@
 const scrapper = require("../utils/scrapper");
 const scrapify = require("../utils/parse.scrapify");
-const { Scrap } = require("../models/models");
 
 /**
  *  @description api for application Name
