@@ -6,9 +6,9 @@ const scrapify = ($) => {
 		const rows = $(data).text();
 		const str = rows.split('\n');
 		json.key = str[0].substring(0, 3);
-		json.value = {};
-		json.value.title = str[0].substring(3, str[0].length);
-		json.value.move = str[1];
+		json.val = {};
+		json.val.title = str[0].substring(3, str[0].length);
+		json.val.move = str[1];
 		json.ttl=180;
 		arrayStructure.push(json);
 	})

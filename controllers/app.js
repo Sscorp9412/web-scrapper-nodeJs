@@ -15,7 +15,7 @@ exports.create = async (req, res) => {
       // const data = await Scrap.collection.insert(scrappedData);
       res
         .status(200)
-        .send({ message: "URL scrapped Successfully", data: scrappedData});
+        .send({ message: "URL scrapped Successfully", data: scrappedData });
     } else res.status(404).send("Cannot scrap this URL");
   } catch (error) {
     console.log(error);
@@ -24,34 +24,39 @@ exports.create = async (req, res) => {
 };
 
 /**
- *  @description api for view scrapped data
+ *  @description api for view all scrapped data
  *  @method GET /
  */
 exports.viewAll = (req, res) => {
   const keys = myCache.keys();
-  console.log(keys);
   const arrayStructure = [];
-  myCache.get('')
   keys.map((each) => {
     const json = myCache.get(each);
-    console.log(json);
-    arrayStructure.push(json);
+    arrayStructure.push({ code: each, ...json });
   });
   if (arrayStructure.length > 0) {
     res
       .status(200)
       .send({ message: "Complete scrapped data", data: arrayStructure });
   } else {
-    res.send(400).send({ message: "data not found", data: [] });
+    res.status(400).send({ message: "data not found", data: [] });
   }
 };
 
 /**
- *  @description api for application Name
- *  @method GET /app/title
+ *  @description api for view scrapped data
+ *  @method GET /
  */
-// exports.view = (req, res) => {
-//   res.send({
-//     title: process.env.APP_NAME,
-//   });
-// };
+exports.view = (req, res) => {
+  const code = req.params.code;
+  const arrayStructure = []
+  const json = myCache.get(code);
+  arrayStructure.push({ code: code, ...json });
+  if (arrayStructure.length > 0) {
+    res
+      .status(200)
+      .send({ message: "Complete scrapped data", data: arrayStructure });
+  } else {
+    res.status(400).send({ message: "data not found", data: [] });
+  }
+};

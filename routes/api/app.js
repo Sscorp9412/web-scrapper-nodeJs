@@ -17,6 +17,6 @@ app.get("/", controller.viewAll);
  *  @description API for getting specific scrapper
  *  @method GET /:code
  */
-// app.get("/:code", controller.view);
+app.get("/:code", controller.view);
 
 module.exports = app;
