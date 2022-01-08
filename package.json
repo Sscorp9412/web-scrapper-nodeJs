@@ -2,10 +2,11 @@
   "name": "opinion-poll",
   "version": "1.0.0",
   "description": "It is a mern based web application used to create opinions",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "mongo:connect": "sudo systemctl start mongod"
+    "mongo:connect": "sudo systemctl start mongod",
+    "start": "node index.js"
   },
   "keywords": [
     "react",
