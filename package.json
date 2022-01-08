@@ -1,7 +1,7 @@
 {
-  "name": "opinion-poll",
+  "name": "web-scrapper",
   "version": "1.0.0",
-  "description": "It is a mern based web application used to create opinions",
+  "description": "It is a nodejs based web scapper",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,9 +9,7 @@
     "start": "node index.js"
   },
   "keywords": [
-    "react",
     "node",
-    "mongodb",
     "express"
   ],
   "author": "Nischay Sharma",
@@ -24,6 +22,7 @@
     "express-session": "^1.17.2",
     "node-cache": "^5.1.2",
     "passport-jwt": "^4.0.0",
+    "request": "^2.88.2",
     "request-promise": "^4.2.6"
   }
 }
