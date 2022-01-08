@@ -24,6 +24,10 @@ app.use(express.json());
 app.use("/api", require("./routes/index"));
 // ** adding sessions
 
+app.get('/', (req, res) => {
+   res.send('App started at /api');
+})
+
 const port = PORT || 4001;
 app.listen(port, () => {
    console.log(`${APP_NAME} is listening at http://localhost:${port}`);
